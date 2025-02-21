@@ -22,8 +22,8 @@ const { width } = Dimensions.get('window');
 const skills = [
   { name: 'React/Next.js', level: 95 },
   { name: 'JavaScript/TypeScript', level: 85 },
-  { name: 'Node.js', level: 80 },
-  { name: 'React Native', level: 75 },
+  { name: 'Node.js', level: 90 },
+  { name: 'React Native', level: 70 },
   { name: 'SQL/NoSQL', level: 85 },
 ];
 
@@ -37,6 +37,44 @@ const contactInfo = {
   email: 'abhinavtomar251@gmail.com',
   phone: '+91 9977231250',
   location: 'Indore, India',
+};
+
+// WavingHand component
+const WavingHand = () => {
+  const rotateAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    const startAnimation = () => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(rotateAnim, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(rotateAnim, {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    };
+
+    startAnimation();
+    return () => rotateAnim.setValue(0);
+  }, []);
+
+  const spin = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '30deg'],
+  });
+
+  return (
+    <Animated.View style={{ transform: [{ rotate: spin }], flexDirection: 'row', alignItems: 'center' }}>
+      <Text style={{ fontSize: 25, fontWeight: 'bold' }}>👋</Text>
+    </Animated.View>
+  );
 };
 
 function App() {
@@ -165,7 +203,7 @@ function App() {
                 { transform: [{ translateX: slideAnim }] },
               ]}
             >
-              <Text style={styles.welcomeText}>Hello, World! 👋</Text>
+              <Text style={styles.welcomeText}>Hello, World! <WavingHand /></Text>
               <Text style={[styles.nameText, { textAlign: 'center' }]}>I'm Abhinav Tomar</Text>
               
               <Animated.View style={[styles.avatarContainer, { transform: [{ scale: avatarScale }] }]}>
@@ -174,7 +212,7 @@ function App() {
                   style={styles.avatar}
                 />
               </Animated.View>
-              
+          
               <Text style={styles.roleText}>Fullstack Developer</Text>
               <Text style={styles.subtitleText}>Building beautiful & performant web & mobile apps</Text>
             </Animated.View>

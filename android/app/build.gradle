@@ -92,6 +92,12 @@ android {
     apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
     signingConfigs {
+        release {
+            storeFile file('abhinav_portfolio_key.keystore')
+            storePassword 'abhinav'
+            keyAlias 'abhinav_portfolio_key'
+            keyPassword 'abhinav'
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
