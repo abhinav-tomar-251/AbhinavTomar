@@ -8,13 +8,13 @@ import {
   Dimensions,
   Linking,
   TouchableOpacity,
-  Modal,
   Platform
 } from 'react-native';
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import { GradientCard, AnimatedButton, SectionTitle } from '../components/SharedComponents';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ArtViewModal from '../components/ArtViewModal';
 
 const { width } = Dimensions.get('window');
 
@@ -93,65 +93,18 @@ const artworks = [
 
 type Props = BottomTabScreenProps<RootStackParamList, 'Portfolio'>;
 
-
 const PortfolioScreen = ({ navigation }: Props) => {
-  const [isArtViewModalVisible, setArtViewModalVisible] = useState(false);
-  const [selectedArt, setSelectedArt] = useState<any>(null);
+  const [selectedArt, setSelectedArt] = useState<{
+    title: string;
+    date: string;
+    description: string;
+    image: any;
+    tags: string[];
+} | null>(null);
 
   const openArtModal = (artwork: any) => {
     setSelectedArt(artwork);
-    setArtViewModalVisible(true);
   };
-
-  const ArtViewModal = () => (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={isArtViewModalVisible}
-      onRequestClose={() => setArtViewModalVisible(false)}
-    >
-      <View style={styles.modalOverlay}>
-        <TouchableOpacity
-          style={StyleSheet.absoluteFill}
-          activeOpacity={1}
-          onPress={() => setArtViewModalVisible(false)}
-        />
-        
-        <View style={styles.modalContainer}>
-          {selectedArt && (
-            <>
-              <Image
-                source={selectedArt.image}
-                style={styles.modalImage}
-                resizeMode="contain"
-              />
-              
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>{selectedArt.title}</Text>
-                <Text style={styles.modalDate}>{selectedArt.date}</Text>
-                <Text style={styles.modalDescription}>{selectedArt.description}</Text>
-                
-                <View style={styles.modalTagsContainer}>
-                  {selectedArt.tags.map((tag: string, index: number) => (
-                    <View key={index} style={styles.modalTag}>
-                      <Text style={styles.modalTagText}>{tag}</Text>
-                    </View>
-                  ))}
-                </View>
-                
-                <TouchableOpacity
-                  style={styles.closeButton}
-                  onPress={() => setArtViewModalVisible(false)}
-                >
-                  <Icon name="times" size={24} color="#fff" />
-                </TouchableOpacity>
-              </View>
-            </>
-          )}
-        </View>
-      </View>
-    </Modal>
-  );
 
   return (
     <>
@@ -207,7 +160,13 @@ const PortfolioScreen = ({ navigation }: Props) => {
           />
         </View>
       </ScrollView>
-      <ArtViewModal />
+      {selectedArt && (
+        <ArtViewModal 
+          artwork={selectedArt || { title: '', date: '', description: '', image: null, tags: [] }} 
+          visible={selectedArt !== null} 
+          onClose={() => setSelectedArt(null)} 
+        />
+      )}
     </>
   );
 };
@@ -296,83 +255,6 @@ const styles = StyleSheet.create({
   },
   behanceButton: {
     width: width - 64,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 44,
-  },
-  modalContainer: {
-    width: width - 40,
-    borderRadius: 20,
-    overflow: 'scroll',
-    backgroundColor: '#1f2937',
-    paddingVertical: 24,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 8,
-      },
-    }),
-  },
-  modalImage: {
-    width: '100%',
-    height: '70%',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-  },
-  modalContent: {
-    padding: 25,
-    backgroundColor: '#1f2937',
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 8,
-  },
-  modalDate: {
-    fontSize: 16,
-    color: '#6366f1',
-    marginBottom: 16,
-  },
-  modalDescription: {
-    fontSize: 16,
-    color: '#d1d5db',
-    lineHeight: 24,
-    marginBottom: 16,
-  },
-  modalTagsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  modalTag: {
-    backgroundColor: '#374151',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    marginRight: 8,
-    marginBottom: 8,
-  },
-  modalTagText: {
-    color: '#fff',
-    fontSize: 14,
-  },
-  closeButton: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-    backgroundColor: 'rgba(0,0,0,0.7)',
-    borderRadius: 20,
-    padding: 8,
   },
 });
 
