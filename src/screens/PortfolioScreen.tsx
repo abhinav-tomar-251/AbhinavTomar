@@ -19,20 +19,20 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const { width } = Dimensions.get('window');
 
 const artworks = [
-  // {
-  //   title: 'Reflections in the Eye',
-  //   description: 'A haunting pen illustration capturing a moment of introspection, where a solitary figure is reflected in a detailed eye study, representing the window to inner depths.',
-  //   image: require('../assets/eye_reflection.png'),
-  //   tags: ['Black Pen', 'Eye Study', 'Reflection'],
-  //   date: 'February 2024',
-  // },
-  // {
-  //   title: 'Melting Shadows',
-  //   description: 'An abstract exploration of human form dissolving into dripping shadows, created with precise ink work to convey the fluidity between solid and void.',
-  //   image: require('../assets/melting_figure.png'),
-  //   tags: ['Dark Art', 'Abstract', 'Ink Work'],
-  //   date: 'January 2024',
-  // },
+  {
+    title: 'Reflections in the Eye',
+    description: 'A haunting pen illustration capturing a moment of introspection, where a solitary figure is reflected in a detailed eye study, representing the window to inner depths.',
+    image: require('../assets/eye_reflection.png'),
+    tags: ['Black Pen', 'Eye Study', 'Reflection'],
+    date: 'February 2024',
+  },
+  {
+    title: 'Melting Shadows',
+    description: 'An abstract exploration of human form dissolving into dripping shadows, created with precise ink work to convey the fluidity between solid and void.',
+    image: require('../assets/melting_figure.png'),
+    tags: ['Dark Art', 'Abstract', 'Ink Work'],
+    date: 'January 2024',
+  },
   {
     title: 'Spiral of Consciousness',
     description: 'An intricate spiral composition merging organic forms with mechanical precision, exploring the complexity of human consciousness through detailed linework.',
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   modalContainer: {
     width: width - 40,
     borderRadius: 20,
-    overflow: 'hidden',
+    overflow: 'scroll',
     backgroundColor: '#1f2937',
     paddingVertical: 24,
     ...Platform.select({

@@ -1,5 +1,59 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+
+# Portfolio App
+
+## Introduction
+Welcome to my Portfolio App! This application showcases my work, skills, and projects. It serves as a digital representation of my professional journey and allows potential employers and collaborators to explore my capabilities.
+
+## Features
+- **User-friendly Interface**: Easy navigation and an intuitive design.
+- **Project Showcase**: Detailed descriptions of my projects with links to live demos.
+- **Experience Section**: Highlights my professional experiences and skills.
+- **Contact Form**: Allows visitors to reach out for inquiries or collaborations.
+
+## Screenshots
+Here are some screenshots of the Portfolio App showcasing its features and user interface:
+
+![Home Screen](./src/assets/screenshots/home_screen.png)
+![Experience Screen](./src/assets/screenshots/experience_screen.png)
+![Portfolio Screen](./src/assets/screenshots/portfolio_screen.png)
+![Artwork Modal Screen](./src/assets/screenshots/portfolio_artwork_modal.png)
+![Contact Screen 1](./src/assets/screenshots/contact_screen1.png)
+![Contact Screen 2](./src/assets/screenshots/contact_screen2.png)
+![Projects Screen](./src/assets/screenshots/projects_screen.png)
+![Blog Screen](./src/assets/screenshots/blog_screen.png)
+![Blog Modal Screen](./src/assets/screenshots/blog_modal.png)
+
+## Installation
+To get started with the Portfolio App, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/abhinav-tomar-251/AbhinavTomar.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd AbhinavTomar
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the app:
+   ```bash
+   npm start
+   ```
+
+## Usage
+Once the app is running, you can navigate through the various sections to explore my projects, experiences, and contact me for any inquiries.
+
+## Contact
+For any questions or feedback, feel free to reach out:
+- Email: abhinavtomar251@gmail.com
+- LinkedIn: [Abhinav Tomar](https://in.linkedin.com/in/abhinavtomarcolancer)
+
+Thank you for visiting my portfolio!
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
