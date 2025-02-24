@@ -15,15 +15,17 @@ Welcome to my Portfolio App! This application showcases my work, skills, and pro
 ## Screenshots
 Here are some screenshots of the Portfolio App showcasing its features and user interface:
 
-![Home Screen](./src/assets/screenshots/home_screen.png)
-![Experience Screen](./src/assets/screenshots/experience_screen.png)
-![Portfolio Screen](./src/assets/screenshots/portfolio_screen.png)
-![Artwork Modal Screen](./src/assets/screenshots/portfolio_artwork_modal.png)
-![Contact Screen 1](./src/assets/screenshots/contact_screen1.png)
-![Contact Screen 2](./src/assets/screenshots/contact_screen2.png)
-![Projects Screen](./src/assets/screenshots/projects_screen.png)
-![Blog Screen](./src/assets/screenshots/blog_screen.png)
-![Blog Modal Screen](./src/assets/screenshots/blog_modal.png)
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="./src/assets/screenshots/home_screen.png" alt="Home Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/experience_screen.png" alt="Experience Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/portfolio_screen.png" alt="Portfolio Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/portfolio_artwork_modal.png" alt="Artwork Modal Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/contact_screen1.png" alt="Contact Screen 1" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/contact_screen2.png" alt="Contact Screen 2" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/projects_screen.png" alt="Projects Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/blog_screen.png" alt="Blog Screen" width="300" style="border-radius: 8px;"/>
+    <img src="./src/assets/screenshots/blog_modal.png" alt="Blog Modal Screen" width="300" style="border-radius: 8px;"/>
+</div>
 
 ## Installation
 To get started with the Portfolio App, follow these steps:
